@@ -19,7 +19,7 @@ void crivo(){
 
 void fatores(int num){
     if(num==1) return;
-    s.insert(fprimos[num]);
+    s.insert(fprimos[num]);//guarda todos os fatores primos dos denominadores
     fatores(num/fprimos[num]);
     return;
 }
@@ -32,16 +32,17 @@ int main(){
     while(n--){
         int aux;
         cin>>a>>b;
+        //o numerador nao importa, a unica coisa que importa e o denominador na sua forma mais basica
         aux=b/__gcd(b%a,a);
         fatores(aux);
     }
-    if(s.empty()){
+    if(s.empty()){//se todos os denominadores forem 1 nao importa a base logo imprime a menor aceitada
         cout<<"2\n";
     }else{
         set<int>::iterator it;
         long long res=1;
         for(it=s.begin();it!=s.end();it++){
-            res=(res*(*it))%998244353;
+            res=(res*(*it))%998244353;//multiplica todos os fatores primos diferentes de todos os denominadores
         }
         cout<<res<<"\n";
     }
