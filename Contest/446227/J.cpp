@@ -6,6 +6,7 @@ using namespace std;
 
 vector<pair<int,int>> kpeias[505];
 
+//algoritmo da mochila com vetor
 lli knapSack(int W, int i)
 {
     // Making and initializing dp array
@@ -35,9 +36,10 @@ int main(){
         cin>>a>>b>>majestosidade;
         kpeias[b-1].push_back(make_pair(a/2,majestosidade));
     }
+    //realiza o algoritmo da mochila para cada tamanho de sapato
     for(int i=0;i<t;i++){
         cin>>a>>b;
-        res+=knapSack(min(a,b),i);
+        res+=knapSack(min(a,b),i);//por causa da estutura utilizada precisa passar quais kpeias importam pra mochila e o min entre a e b para saber quantos pares de sapato se tem
     }
     cout<<res<<"\n";
     return 0;
