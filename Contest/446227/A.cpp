@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+//como so importa os que nao sao o elemento x analisamos todos os casos possiveis ignorando o possivel elemento x
 int main(){
     int a,b,c,d;
     cin>>a>>b>>c>>d;
